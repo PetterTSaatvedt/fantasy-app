@@ -1,6 +1,8 @@
+import '../css/Nav.css';
+
 function Nav() {
     return (
-        <nav className="main-nav">
+        <nav className="navbar">
             <ul>
                 <li>Home</li>
                 <li>Live Rank</li>

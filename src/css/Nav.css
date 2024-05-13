@@ -1,0 +1,27 @@
+.navbar {
+    width: 100%;
+    background-color: #340040;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none !important;
+    width: 100%;
+    max-width: 1200px;
+    padding: 1em;
+}
+
+.navbar ul li {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.navbar ul li:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
