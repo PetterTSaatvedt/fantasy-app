@@ -1,9 +1,11 @@
 
 .App {
   background-color: #ededed;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   align-items: center;
   min-height: 100vh;
   color: #1f1f1f;
 }
+
+
