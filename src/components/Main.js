@@ -23,7 +23,7 @@ function Main() {
 
     return (
         <div className="main-content">
-            {isIdEntered ? <Router /> : idInput()}
+            {isIdEntered ? <Router fplId={fplId} /> : idInput()}
         </div>
     )
 }

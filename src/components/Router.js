@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import LiveRank from './LiveRank';
 
-function Router() {
+function Router(props) {
     return (
         <Routes>
             <Route path='/' Component={LiveRank}></Route>
