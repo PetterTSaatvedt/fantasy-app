@@ -1,8 +1,8 @@
 
-function LiveRank() {
+function LiveRank(props) {
     return (
         <>
-            <p>Nothing here yet...</p>
+            <p>{props.fplId}</p>
         </>
     )
 }

@@ -35,7 +35,7 @@
     color: #1f1f1f;
 }
 
-a {
+.navbar ul li a {
     text-decoration: none;
     color: #05F26C;
 }

@@ -5,9 +5,9 @@ import Leagues from './Leagues';
 function Router(props) {
     return (
         <Routes>
-            <Route path='/' Component={LiveRank}></Route>
+            <Route path='/' element={<LiveRank fplId={props.fplId} />} />
             <Route path='/leagues' Component={Leagues}></Route>
-        </Routes>
+        </Routes>      
     )
 }
 
