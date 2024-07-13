@@ -1,0 +1,39 @@
+.live-rank-header {
+    width: 90%;
+    text-align: left;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90%;
+}
+
+.live-rank-team {
+    border-radius: 8px;
+    height: 550px;
+    width: 70%;
+    border: 2px solid #340040;
+    border-radius: 9px 9px 9px 9px;
+}
+
+.starting-xi {
+    background-color: #09c75b;
+    height: 80%;
+    border-radius: 8px 8px 0px 0px;
+}
+
+.bench-players {
+    background-color: lightgray;
+    height: 20%;
+    border-radius: 0px 0px 8px 8px;
+}
+
+.live-rank-stats {
+    width: 30%;
+    text-align: center;
+    height: 550px;
+}
+
