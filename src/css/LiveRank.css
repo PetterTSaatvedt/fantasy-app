@@ -9,26 +9,43 @@ main {
     align-items: center;
     justify-content: space-evenly;
     width: 90%;
+    margin-top: 30px;
 }
 
 .live-rank-team {
     border-radius: 8px;
     height: 550px;
     width: 70%;
-    border: 2px solid #340040;
     border-radius: 9px 9px 9px 9px;
+    box-shadow: 1px 1px 10px 1.5px #b5b5b5;
 }
 
 .starting-xi {
     background-color: #09c75b;
     height: 80%;
     border-radius: 8px 8px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.starting-defenders, .starting-midfielders, .starting-forwards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
 }
 
 .bench-players {
     background-color: lightgray;
     height: 20%;
     border-radius: 0px 0px 8px 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
 }
 
 .live-rank-stats {

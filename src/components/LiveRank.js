@@ -5,15 +5,33 @@ function LiveRank(props) {
         <main>
             <div className="live-rank-team">
                 <div className="starting-xi">
-                    Starting XI
+                    <div className="starting-keeper">Keeper</div>
+                    <div className="starting-defenders">
+                        <p>Defender 1</p>
+                        <p>Defender 2</p>
+                        <p>Defender 3</p>
+                    </div>
+                    <div className="starting-midfielders">
+                        <p>Midfielder 1</p>
+                        <p>Midfielder 2</p>
+                        <p>Midfielder 3</p>
+                        <p>Midfielder 4</p>
+                    </div>
+                    <div className="starting-forwards">
+                        <p>Forward 1</p>
+                        <p>Forward 2</p>
+                        <p>Forward 3</p>
+                    </div>
                 </div>
                 <div className="bench-players">
-                    Bench
+                    <div>Sub Keeper</div>
+                    <div>Sub 1</div>
+                    <div>Sub 2</div>
+                    <div>Sub 3</div>
                 </div>
             </div>
             
             <div className="live-rank-stats">
-                <p>{props.fplId}</p>
                 <h2>Gameweek Statistics</h2>
                 <div className="live-rank-points">
                     <p>Gameweek Points:</p>
