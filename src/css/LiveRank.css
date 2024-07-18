@@ -6,7 +6,6 @@
 main {
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-evenly;
     width: 90%;
     margin-top: 30px;
@@ -51,6 +50,15 @@ main {
 .live-rank-stats {
     width: 30%;
     text-align: center;
-    height: 550px;
+    height: auto;
+}
+
+.stats {
+    margin-top: 50px;
+}
+
+.stats, .personal-info {
+    text-align: left;
+    margin-left: 30px;
 }
 

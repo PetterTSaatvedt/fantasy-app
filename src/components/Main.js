@@ -6,6 +6,8 @@ function Main() {
     const [fplId, setFplId] = useState('');
     const [isIdEntered, setIsIdEntered] = useState(false);
 
+    
+
     const handleEnter = () => {
         setIsIdEntered(true);
     }
