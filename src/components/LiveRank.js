@@ -1,4 +1,5 @@
 import '../css/LiveRank.css';
+import PlayerCard from './PlayerCard';
 
 function LiveRank(props) {
     let player = {
@@ -16,7 +17,7 @@ function LiveRank(props) {
                 <div className="starting-xi">
                     <div className="starting-keeper">Keeper</div>
                     <div className="starting-defenders">
-                        <p>Defender 1</p>
+                        <PlayerCard name='Saliba' />
                         <p>Defender 2</p>
                         <p>Defender 3</p>
                     </div>
