@@ -8,9 +8,11 @@ function PlayerCard(props){
                 <p className='eo-near'>33.3%</p>
                 <p className='eo-overall'>10.3%</p>
             </div>
-            <img src={playerShirt} alt='Player Shirt' className='player-img' />
-            <h2>{props.name}</h2>
-            <p>0</p>
+            <div className='player-wrapper'>
+                <img src={playerShirt} alt='Player Shirt' className='player-img' />
+                <p>{props.name}</p>
+            </div>
+            <p className='player-card-points'>0</p>
         </div>
     )
 }
