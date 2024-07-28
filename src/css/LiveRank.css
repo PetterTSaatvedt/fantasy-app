@@ -13,7 +13,7 @@ main {
 
 .live-rank-team {
     border-radius: 8px;
-    height: 550px;
+    height: auto;
     width: 70%;
     border-radius: 9px 9px 9px 9px;
     box-shadow: 1px 1px 10px 1.5px #b5b5b5;
@@ -21,7 +21,7 @@ main {
 
 .starting-xi {
     background-color: #09c75b;
-    height: 80%;
+    height: auto;
     border-radius: 8px 8px 0px 0px;
     display: flex;
     flex-direction: column;
@@ -34,17 +34,23 @@ main {
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
+    margin-bottom: 20px;
+}
+
+.starting-keeper {
+    margin: 20px 0px 20px 0px;
 }
 
 .bench-players {
     background-color: lightgray;
-    height: 20%;
+    height: auto;
     border-radius: 0px 0px 8px 8px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     width: 100%;
+    padding: 20px 0px 20px 0px;
 }
 
 .live-rank-stats {

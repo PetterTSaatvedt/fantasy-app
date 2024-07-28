@@ -19,7 +19,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
 }
 
 .eo-near {
@@ -39,8 +38,14 @@
     margin-bottom: 16px;
 }
 
+.player-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .player-wrapper p {
-    margin: 1px 0px 16px;
+    margin: 2px 0px 16px;
 }
 
 .player-card-points {

@@ -15,29 +15,31 @@ function LiveRank(props) {
         <main>
             <div className="live-rank-team">
                 <div className="starting-xi">
-                    <div className="starting-keeper">Keeper</div>
+                    <div className="starting-keeper">
+                        <PlayerCard name='Raya' />
+                    </div>
                     <div className="starting-defenders">
                         <PlayerCard name='Saliba' />
-                        <p>Defender 2</p>
-                        <p>Defender 3</p>
+                        <PlayerCard name='Gabriel' />
+                        <PlayerCard name='White' />
                     </div>
                     <div className="starting-midfielders">
-                        <p>Midfielder 1</p>
-                        <p>Midfielder 2</p>
-                        <p>Midfielder 3</p>
-                        <p>Midfielder 4</p>
+                        <PlayerCard name='Saka' />
+                        <PlayerCard name='Ødegaard' />
+                        <PlayerCard name='Martinelli' />
+                        <PlayerCard name='Rice' />
                     </div>
                     <div className="starting-forwards">
-                        <p>Forward 1</p>
-                        <p>Forward 2</p>
-                        <p>Forward 3</p>
+                        <PlayerCard name='Havertz' />
+                        <PlayerCard name='Jesus' />
+                        <PlayerCard name='Nketiah' />
                     </div>
                 </div>
                 <div className="bench-players">
-                    <div>Sub Keeper</div>
-                    <div>Sub 1</div>
-                    <div>Sub 2</div>
-                    <div>Sub 3</div>
+                    <PlayerCard name='Ramsdale' />
+                    <PlayerCard name='Calafiori' />
+                    <PlayerCard name='Nwaneri' />
+                    <PlayerCard name='Timber' />
                 </div>
             </div>
             
