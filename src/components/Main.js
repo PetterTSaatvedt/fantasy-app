@@ -6,10 +6,29 @@ function Main() {
     const [fplId, setFplId] = useState('');
     const [isIdEntered, setIsIdEntered] = useState(false);
 
-    
+    async function fetchUserData() {
+        try {
+            const response = await fetch(`api/entry/${fplId}/`, {
+                method: 'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                mode: 'cors'
+            });
+            if (!response.ok) {
+                throw new Error(`Response status: ${response.status}`)
+            }
+            const userData = await response.json();
+            console.log(userData);
+            console.log(fplId);
+        } catch(error) {
+            console.error(error.message);
+        }
+    }
 
     const handleEnter = () => {
         setIsIdEntered(true);
+        fetchUserData();
     }
 
     const idInput = () => (
