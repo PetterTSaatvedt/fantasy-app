@@ -4,6 +4,7 @@ import Router from './Router';
 
 function Main() {
     const [fplId, setFplId] = useState('');
+    const [userData, setUserData] = useState({});
     const [isIdEntered, setIsIdEntered] = useState(false);
 
     async function fetchUserData() {
@@ -18,9 +19,8 @@ function Main() {
             if (!response.ok) {
                 throw new Error(`Response status: ${response.status}`)
             }
-            const userData = await response.json();
-            console.log(userData);
-            console.log(fplId);
+            const userDataJson = await response.json();
+            setUserData(userDataJson);
         } catch(error) {
             console.error(error.message);
         }
@@ -44,7 +44,7 @@ function Main() {
 
     return (
         <div className="main-content">
-            {isIdEntered ? <Router fplId={fplId} /> : idInput()}
+            {isIdEntered ? <Router userData={userData} /> : idInput()}
         </div>
     )
 }
