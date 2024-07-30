@@ -16,6 +16,9 @@ function LiveRank(props) {
     return (
         <main>
             <div className="live-rank-team">
+                <div className='live-rank-team-header'>
+                    <h1>{props.userData.name}</h1>
+                </div>
                 <div className="starting-xi">
                     <div className="starting-keeper">
                         <PlayerCard name='Raya' />
