@@ -18,6 +18,9 @@ function LiveRank(props) {
             <div className="live-rank-team">
                 <div className='live-rank-team-header'>
                     <h1>{props.userData.name}</h1>
+                    <div className='gw-points'>
+                        <p>GW Points: 0</p>
+                    </div>
                 </div>
                 <div className="starting-xi">
                     <div className="starting-keeper">

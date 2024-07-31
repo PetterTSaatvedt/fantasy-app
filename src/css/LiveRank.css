@@ -22,6 +22,18 @@ main {
     background-image: linear-gradient(to right, rgb(2, 239, 255), rgb(98, 123, 255));
     padding: 1.5rem;
     border-radius: 5px 5px 0px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gw-points {
+    background-color: rgb(2, 239, 255, 0.6);
+    padding: 0 1rem 0 1rem;
+    border-radius: 4px;
+    box-shadow: 1px 1px 5px 0.1px #285a94;
+    font-weight: 500;
 }
 
 .live-rank-team-header h1 {
