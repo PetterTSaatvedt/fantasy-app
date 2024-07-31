@@ -11,7 +11,7 @@ function LiveRank(props) {
         position: 0,
     }
 
-    const playerName = props.userData.player_first_name + ' ' + props.userData.player_last_name;
+    const userName = props.userData.player_first_name + ' ' + props.userData.player_last_name;
 
     return (
         <main>
@@ -53,7 +53,7 @@ function LiveRank(props) {
             
             <div className="live-rank-stats">
                 <div className="personal-info">
-                    <h2>{playerName}</h2>
+                    <h2>{userName}</h2>
                     <p>ID: {props.userData.id}</p>
                     <p>Years active: {props.userData.years_active}</p>
                     <p>Country: {props.userData.player_region_name}</p>

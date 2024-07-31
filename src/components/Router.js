@@ -6,8 +6,8 @@ function Router(props) {
     return (
         <Routes>
             <Route path='/' element={<LiveRank userData={props.userData} />} />
-            <Route path='/leagues' Component={Leagues}></Route>
-        </Routes>      
+            <Route path='/leagues' element={<Leagues userData={props.userData} />} />
+        </Routes>
     )
 }
 
