@@ -13,7 +13,7 @@ a {
 
 .leagues-wrapper {
     border-radius: 4px;
-    width: 100%;
+    width: 80%;
     background-image: linear-gradient(120deg, rgb(2, 239, 255, 0.3), rgb(98, 123, 255, 0.3));
     display: flex;
     flex-direction: column;
@@ -44,4 +44,9 @@ a {
 .leagues-list-item:hover {
     background-image: linear-gradient(to right, rgb(2, 239, 255, 0.2), rgb(98, 123, 255, 0.2));
     border: 2px solid rgb(98, 123, 255, 0.5);
+}
+
+.leagues-list-item h2 {
+    font-weight: 400;
+    font-size: 20px;
 }
