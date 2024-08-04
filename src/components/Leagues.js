@@ -21,11 +21,12 @@ function Leagues(props) {
                 <div className="leagues-header">
                     <h1>{userName}'s Leagues</h1>
                 </div>
-                <div className="leagues-list">
-                    <ul>
+                <div className="leagues-list-wrapper">
+                    <ul className="leagues-list">
                         {leagueListItems}
                     </ul>
                 </div>
+                
             </div>
         </main>
     )
