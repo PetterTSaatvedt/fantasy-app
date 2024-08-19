@@ -32,13 +32,18 @@ function League(){
         fetchLeagueData();
     }, []);
 
-    const leaderboard = leagueData.new_entries?.results?.map(player => 
+    const leaderboard = leagueData.standings?.results?.map(player => 
         <li key={player.entry} className="league-leaderboard-item">
             <div className="leaderboard-rank">
-                <p>1</p>
+                <p>{player.rank}</p>
             </div>
-            <h2>{player.player_first_name + ' ' + player.player_last_name}</h2>
-            <p>{player.entry_name}</p>
+            <div className="leaderboard-info">
+                <h2>{player.player_name} ({player.entry_name})</h2>
+                <div className="leaderboard-info-points">
+                    <p>Round: <b>{player.event_total}</b></p>
+                    <p>Total: <b>{player.total}</b></p>
+                </div>
+            </div>
         </li>)
 
     return (

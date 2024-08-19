@@ -40,6 +40,23 @@
     justify-content: center;
 }
 
+.leaderboard-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-left: 2rem;
+}
+
+.leaderboard-info-points {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 180px;
+}
+
 .league-leaderboard-item h2 {
     font-weight: bold;
     font-size: 16px;
