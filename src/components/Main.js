@@ -5,9 +5,10 @@ import Router from './Router';
 function Main() {
     const [fplId, setFplId] = useState('');
     const [userData, setUserData] = useState({});
+    const [teamData, setTeamData] = useState({});
     const [isIdEntered, setIsIdEntered] = useState(false);
 
-    async function fetchUserData() {
+    async function fetchUserAndTeamData() {
         try {
             const response = await fetch(`api/entry/${fplId}/`, {
                 method: 'GET',
@@ -16,11 +17,21 @@ function Main() {
                 },
                 mode: 'cors'
             });
-            if (!response.ok) {
-                throw new Error(`Response status: ${response.status}`)
-            }
             const userDataJson = await response.json();
             setUserData(userDataJson);
+
+            const urlId = userDataJson.id;
+            const urlCurrentEvent = userDataJson.current_event;
+            const secondResponse = await fetch(`/api/entry/${urlId}/event/${urlCurrentEvent}/picks/`, {
+                method: 'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                mode: 'cors'
+            });
+            const teamDataJson = await secondResponse.json();
+            setTeamData(teamDataJson);
+            console.log(teamDataJson);
         } catch(error) {
             console.error(error.message);
         }
@@ -28,7 +39,7 @@ function Main() {
 
     const handleEnter = () => {
         setIsIdEntered(true);
-        fetchUserData();
+        fetchUserAndTeamData();
     }
 
     const idInput = () => (
@@ -44,7 +55,7 @@ function Main() {
 
     return (
         <div className="main-content">
-            {isIdEntered ? <Router userData={userData} /> : idInput()}
+            {isIdEntered ? <Router userData={userData} teamData={teamData} /> : idInput()}
         </div>
     )
 }

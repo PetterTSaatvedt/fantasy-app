@@ -54,18 +54,19 @@ function LiveRank(props) {
             <div className="live-rank-stats">
                 <div className="personal-info">
                     <h2>{userName}</h2>
-                    <p>ID: {props.userData.id}</p>
                     <p>Years active: {props.userData.years_active}</p>
                     <p>Country: {props.userData.player_region_name}</p>
+                    <p>Overall points: {props.userData.summary_overall_points}</p>
                 </div>
                 <div className="stats">
-                    <h2>Gameweek Statistics</h2>
+                    <h2>Gameweek {props.userData.current_event} Statistics</h2>
                     <div className="live-rank-points">
                         <p>Gameweek Points:</p>
                     </div>
                     <div className="live-rank-ranks">
                         <p>Old Rank:</p>
-                        <p>Live Rank:</p>
+                        <p>GW Rank: {props.userData.summary_event_rank}</p>
+                        <p>Live Rank: {props.userData.summary_overall_rank}</p>
                         <p>Rank post-subs:</p>
                     </div>
                 </div>
