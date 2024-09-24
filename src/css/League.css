@@ -29,6 +29,19 @@
     max-width: 1200px;
 }
 
+.user-league-leaderboard-item {
+    background-image: linear-gradient(to right, rgb(2, 239, 255, 0.8), rgb(98, 123, 255, 0.8));
+    padding: 1rem;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 4px;
+    width: 80%;
+    max-width: 1200px;
+}
+
 .leaderboard-rank {
     border-right: 2px solid rgb(98, 123, 255, 0.2);
     padding-right: 1rem;
@@ -57,7 +70,7 @@
     width: 180px;
 }
 
-.league-leaderboard-item h2 {
+.league-leaderboard-item h2, .user-league-leaderboard-item h2 {
     font-weight: bold;
     font-size: 16px;
 }

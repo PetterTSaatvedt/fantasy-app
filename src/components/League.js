@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import '../css/League.css';
 
-function League(){
+function League(props){
     const params = useParams();
     const leagueId = params.id;
 
@@ -32,8 +32,8 @@ function League(){
         fetchLeagueData();
     }, []);
 
-    const leaderboard = leagueData.standings?.results?.map(player => 
-        <li key={player.entry} className="league-leaderboard-item">
+    const leaderboard = leagueData.standings?.results?.map(player =>
+        <li key={player.entry} className={player.entry == props.fplId ? 'user-league-leaderboard-item' : 'league-leaderboard-item'}>
             <div className="leaderboard-rank">
                 <p>{player.rank}</p>
             </div>
