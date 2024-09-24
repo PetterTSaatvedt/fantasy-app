@@ -11,6 +11,8 @@ function LiveRank(props) {
         position: 0,
     }
 
+    const teamData = props.teamData;
+
     const userName = props.userData.player_first_name + ' ' + props.userData.player_last_name;
 
     return (
@@ -19,7 +21,7 @@ function LiveRank(props) {
                 <div className='live-rank-team-header'>
                     <h1>{props.userData.name}</h1>
                     <div className='gw-points'>
-                        <p>GW Points: 0</p>
+                        <p>GW Points: {teamData.entry_history.points}</p>
                     </div>
                 </div>
                 <div className="starting-xi">
@@ -61,13 +63,12 @@ function LiveRank(props) {
                 <div className="stats">
                     <h2>Gameweek {props.userData.current_event} Statistics</h2>
                     <div className="live-rank-points">
-                        <p>Gameweek Points:</p>
+                        <p>Gameweek Points: {teamData.entry_history.points}</p>
                     </div>
                     <div className="live-rank-ranks">
+                        <p>Gameweek Rank: {props.userData.summary_event_rank}</p>
                         <p>Old Rank:</p>
-                        <p>GW Rank: {props.userData.summary_event_rank}</p>
-                        <p>Live Rank: {props.userData.summary_overall_rank}</p>
-                        <p>Rank post-subs:</p>
+                        <p>New Rank: {props.userData.summary_overall_rank}</p>
                     </div>
                 </div>
             </div>
