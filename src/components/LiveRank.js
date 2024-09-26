@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import '../css/LiveRank.css';
 import PlayerCard from './PlayerCard';
 
@@ -15,7 +16,7 @@ function LiveRank(props) {
 
     const userName = props.userData.player_first_name + ' ' + props.userData.player_last_name;
 
-    return (
+    return Object.keys(teamData).length > 0 ? (
         <main>
             <div className="live-rank-team">
                 <div className='live-rank-team-header'>
@@ -73,7 +74,7 @@ function LiveRank(props) {
                 </div>
             </div>
         </main>
-    )
+    ) : (<p>Fetching team...</p>)
 }
 
 export default LiveRank;
