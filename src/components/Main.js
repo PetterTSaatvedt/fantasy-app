@@ -1,12 +1,31 @@
 import '../css/Main.css';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import Router from './Router';
 
 function Main() {
     const [fplId, setFplId] = useState('');
     const [userData, setUserData] = useState({});
     const [teamData, setTeamData] = useState({});
+    const [players, setPlayers] = useState([]);
+    const [teams, setTeams] = useState([]);
     const [isIdEntered, setIsIdEntered] = useState(false);
+
+    async function fetchPlayersAndTeams() {
+        try {
+            const response = await fetch(`api/bootstrap-static/`, {
+                method: 'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                mode: 'cors'
+            });
+            const data = await response.json();
+            setPlayers(data.elements);
+            setTeams(data.teams);
+        } catch(error) {
+            console.log(error);
+        }
+    }
 
     async function fetchUserAndTeamData() {
         try {
@@ -31,11 +50,14 @@ function Main() {
             });
             const teamDataJson = await secondResponse.json();
             setTeamData(teamDataJson);
-            console.log(teamDataJson);
         } catch(error) {
             console.error(error.message);
         }
     }
+
+    useEffect(() => {
+        fetchPlayersAndTeams();
+    }, []);
 
     const handleEnter = () => {
         setIsIdEntered(true);
@@ -55,7 +77,7 @@ function Main() {
 
     return (
         <div className="main-content">
-            {isIdEntered ? <Router userData={userData} teamData={teamData} fplId={fplId} /> : idInput()}
+            {isIdEntered ? <Router userData={userData} teamData={teamData} fplId={fplId} players={players} teams={teams} /> : idInput()}
         </div>
     )
 }
