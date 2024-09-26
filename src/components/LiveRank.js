@@ -1,19 +1,36 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import '../css/LiveRank.css';
 import PlayerCard from './PlayerCard';
 
 function LiveRank(props) {
-    let player = {
-        name: '',
-        points: 0,
-        ownership: 0.0,
-        isCaptain: false,
-        isVice: false,
-        position: 0,
+    const [liveStats, setLiveStats] = useState([]);
+
+    async function fetchPlayerLiveStats() {
+        try {
+            const response = await fetch(`api/event/${props.userData.current_event}/live/`, {
+                method: 'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                mode: 'cors'
+            });
+            const data = await response.json();
+            setLiveStats(data.elements);
+            console.log(data.elements); 
+        } catch(error) {
+            console.log(error);
+        }
     }
 
-    const teamData = props.teamData;
+    useEffect(() => {
+        fetchPlayerLiveStats();
+    }, [props.userData]);
 
+    let defenders = [];
+    let midfielders = [];
+    let attackers = [];
+
+    const teamData = props.teamData;
     const userName = props.userData.player_first_name + ' ' + props.userData.player_last_name;
 
     return Object.keys(teamData).length > 0 ? (
