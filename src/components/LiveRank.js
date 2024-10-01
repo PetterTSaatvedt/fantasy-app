@@ -16,7 +16,6 @@ function LiveRank(props) {
             });
             const data = await response.json();
             setLiveStats(data.elements);
-            console.log(data.elements); 
         } catch(error) {
             console.log(error);
         }
@@ -26,9 +25,56 @@ function LiveRank(props) {
         fetchPlayerLiveStats();
     }, [props.userData]);
 
+    let goalkeeper = {};
     let defenders = [];
     let midfielders = [];
     let attackers = [];
+    let bench = [];
+
+    function fillTeam() {
+        // props.players = [{}, {}, {}...]
+        // props.teams = [{}, {}, {}...]
+        // props.teamData.elements = [{}, {}, {}...]
+
+        for (player in props.teamData.picks){
+            let positionGroup = props.players[player.element - 1].element_type;
+            if (player.position <= 11){
+                switch(positionGroup) {
+                    //goalkeepers
+                    case 1:
+                        goalkeeper = {
+                            name: props.players[player.element - 1].web_name,
+                            total_points: liveStats[player.element - 1].stats.total_points,
+                            points_explained: liveStats[player.element -1].explain[0].stats, //returns array of objects (object values: identifier, points, value)
+                            team: props.teams[props.players[player.element - 1].team - 1].name,
+                            is_captain: player.is_captain,
+                            is_vice_captain: player.is_vice_captain,
+                            multiplier: player.multiplier
+                        }
+                        break;
+                    //defenders
+                    case 2:
+                        //
+                        break;
+                    //midfielders
+                    case 3:
+                        //
+                        break;
+                    //forwards
+                    case 4:
+                        //
+                        break;
+                    default:
+                }
+            } else {
+                bench.push({
+
+                })
+            }
+            
+
+        }
+    }
 
     const teamData = props.teamData;
     const userName = props.userData.player_first_name + ' ' + props.userData.player_last_name;
