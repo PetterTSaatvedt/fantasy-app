@@ -22,60 +22,107 @@ function LiveRank(props) {
     }
 
     useEffect(() => {
-        fetchPlayerLiveStats();
+        if (props.userData.current_event !== undefined){
+            fetchPlayerLiveStats();
+        }
     }, [props.userData]);
 
     let goalkeeper = {};
     let defenders = [];
     let midfielders = [];
-    let attackers = [];
+    let forwards = [];
     let bench = [];
 
     function fillTeam() {
         // props.players = [{}, {}, {}...]
         // props.teams = [{}, {}, {}...]
         // props.teamData.elements = [{}, {}, {}...]
-
-        for (player in props.teamData.picks){
-            let positionGroup = props.players[player.element - 1].element_type;
-            if (player.position <= 11){
+        console.log(props.teamData.picks);
+        let picks = props.teamData.picks;
+        for (let i = 0; i < picks.length; i++){
+            let positionGroup = props.players[picks[i].element - 1].element_type;
+            console.log(positionGroup);
+            if (picks[i].position <= 11){
                 switch(positionGroup) {
                     //goalkeepers
                     case 1:
                         goalkeeper = {
-                            name: props.players[player.element - 1].web_name,
-                            total_points: liveStats[player.element - 1].stats.total_points,
-                            points_explained: liveStats[player.element -1].explain[0].stats, //returns array of objects (object values: identifier, points, value)
-                            team: props.teams[props.players[player.element - 1].team - 1].name,
-                            is_captain: player.is_captain,
-                            is_vice_captain: player.is_vice_captain,
-                            multiplier: player.multiplier
+                            name: props.players[picks[i].element - 1].web_name,
+                            total_points: liveStats[picks[i].element - 1].stats.total_points,
+                            points_explained: liveStats[picks[i].element -1].explain[0].stats, //returns array of objects (object values: identifier, points, value)
+                            team: props.teams[props.players[picks[i].element - 1].team - 1].name,
+                            is_captain: picks[i].is_captain,
+                            is_vice_captain: picks[i].is_vice_captain,
+                            multiplier: picks[i].multiplier
                         }
                         break;
                     //defenders
                     case 2:
-                        //
+                        defenders.push({
+                            name: props.players[picks[i].element - 1].web_name,
+                            total_points: liveStats[picks[i].element - 1].stats.total_points,
+                            points_explained: liveStats[picks[i].element -1].explain[0].stats, //returns array of objects (object values: identifier, points, value)
+                            team: props.teams[props.players[picks[i].element - 1].team - 1].name,
+                            is_captain: picks[i].is_captain,
+                            is_vice_captain: picks[i].is_vice_captain,
+                            multiplier: picks[i].multiplier
+                        });
                         break;
                     //midfielders
                     case 3:
-                        //
+                        midfielders.push({
+                            name: props.players[picks[i].element - 1].web_name,
+                            total_points: liveStats[picks[i].element - 1].stats.total_points,
+                            points_explained: liveStats[picks[i].element -1].explain[0].stats, //returns array of objects (object values: identifier, points, value)
+                            team: props.teams[props.players[picks[i].element - 1].team - 1].name,
+                            is_captain: picks[i].is_captain,
+                            is_vice_captain: picks[i].is_vice_captain,
+                            multiplier: picks[i].multiplier
+                        });
                         break;
                     //forwards
                     case 4:
-                        //
+                        forwards.push({
+                            name: props.players[picks[i].element - 1].web_name,
+                            total_points: liveStats[picks[i].element - 1].stats.total_points,
+                            points_explained: liveStats[picks[i].element -1].explain[0].stats, //returns array of objects (object values: identifier, points, value)
+                            team: props.teams[props.players[picks[i].element - 1].team - 1].name,
+                            is_captain: picks[i].is_captain,
+                            is_vice_captain: picks[i].is_vice_captain,
+                            multiplier: picks[i].multiplier
+                        });
                         break;
                     default:
                 }
             } else {
                 bench.push({
-
-                })
+                    name: props.players[picks[i].element - 1].web_name,
+                    total_points: liveStats[picks[i].element - 1].stats.total_points,
+                    points_explained: liveStats[picks[i].element -1].explain[0].stats, //returns array of objects (object values: identifier, points, value)
+                    team: props.teams[props.players[picks[i].element - 1].team - 1].name,
+                    is_captain: picks[i].is_captain,
+                    is_vice_captain: picks[i].is_vice_captain,
+                    multiplier: picks[i].multiplier
+                });
             }
-            
-
         }
+
+        console.log(goalkeeper);
+        console.log(defenders);
+        console.log(midfielders);
+        console.log(forwards);
+        console.log(bench);
     }
 
+
+    useEffect(() => {
+        if (props.players.length > 0 && Object.keys(teamData).length > 0 && liveStats.length > 0){
+            fillTeam();
+        } else {
+            console.log("No data yet.")
+        }
+    }, [liveStats]);
+    
     const teamData = props.teamData;
     const userName = props.userData.player_first_name + ' ' + props.userData.player_last_name;
 
