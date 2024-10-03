@@ -20,8 +20,10 @@ function Main() {
                 mode: 'cors'
             });
             const data = await response.json();
-            setPlayers(data.elements);
-            setTeams(data.teams);
+            const sortedPlayers = data.elements.sort((a, b) => a.id - b.id);
+            const sortedTeams = data.teams.sort((a, b) => a.id - b.id);
+            setPlayers(sortedPlayers);
+            setTeams(sortedTeams);
         } catch(error) {
             console.log(error);
         }
