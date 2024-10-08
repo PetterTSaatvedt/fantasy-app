@@ -12,7 +12,7 @@ function PlayerCard(props){
                 <img src={playerShirt} alt='Player Shirt' className='player-img' />
                 <p>{props.name}</p>
             </div>
-            <p className='player-card-points'>0</p>
+            <p className='player-card-points'>{props.points}</p>
         </div>
     )
 }

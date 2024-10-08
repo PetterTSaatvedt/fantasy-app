@@ -24,29 +24,34 @@ function LiveRank(props) {
     useEffect(() => {
         if (props.userData.current_event !== undefined){
             fetchPlayerLiveStats();
+            console.log("Fetched livestats");
         }
     }, [props.userData]);
 
-    let goalkeeper = {};
-    let defenders = [];
-    let midfielders = [];
-    let forwards = [];
-    let bench = [];
+    const [goalkeeper, setGoalkeeper] = useState({});
+    const [defenders, setDefenders] = useState([]);
+    const [midfielders, setMidfielders] = useState([]);
+    const [forwards, setForwards] = useState([]);
+    const [bench, setBench] = useState([]);
 
     function fillTeam() {
         // props.players = [{}, {}, {}...]
         // props.teams = [{}, {}, {}...]
         // props.teamData.elements = [{}, {}, {}...]
-        console.log(props.teamData.picks);
+        let defenderArray = [];
+        let midfielderArray = [];
+        let forwardArray = [];
+        let benchArray = [];
+
         let picks = props.teamData.picks;
         for (let i = 0; i < picks.length; i++){
             let positionGroup = props.players[picks[i].element - 1].element_type;
-            console.log(positionGroup);
+
             if (picks[i].position <= 11){
                 switch(positionGroup) {
                     //goalkeepers
                     case 1:
-                        goalkeeper = {
+                        setGoalkeeper({
                             name: props.players[picks[i].element - 1].web_name,
                             total_points: liveStats[picks[i].element - 1].stats.total_points,
                             points_explained: liveStats[picks[i].element -1].explain[0].stats, //returns array of objects (object values: identifier, points, value)
@@ -54,11 +59,11 @@ function LiveRank(props) {
                             is_captain: picks[i].is_captain,
                             is_vice_captain: picks[i].is_vice_captain,
                             multiplier: picks[i].multiplier
-                        }
+                        });
                         break;
                     //defenders
                     case 2:
-                        defenders.push({
+                        defenderArray.push({
                             name: props.players[picks[i].element - 1].web_name,
                             total_points: liveStats[picks[i].element - 1].stats.total_points,
                             points_explained: liveStats[picks[i].element -1].explain[0].stats, //returns array of objects (object values: identifier, points, value)
@@ -70,7 +75,7 @@ function LiveRank(props) {
                         break;
                     //midfielders
                     case 3:
-                        midfielders.push({
+                        midfielderArray.push({
                             name: props.players[picks[i].element - 1].web_name,
                             total_points: liveStats[picks[i].element - 1].stats.total_points,
                             points_explained: liveStats[picks[i].element -1].explain[0].stats, //returns array of objects (object values: identifier, points, value)
@@ -82,7 +87,7 @@ function LiveRank(props) {
                         break;
                     //forwards
                     case 4:
-                        forwards.push({
+                        forwardArray.push({
                             name: props.players[picks[i].element - 1].web_name,
                             total_points: liveStats[picks[i].element - 1].stats.total_points,
                             points_explained: liveStats[picks[i].element -1].explain[0].stats, //returns array of objects (object values: identifier, points, value)
@@ -95,7 +100,7 @@ function LiveRank(props) {
                     default:
                 }
             } else {
-                bench.push({
+                benchArray.push({
                     name: props.players[picks[i].element - 1].web_name,
                     total_points: liveStats[picks[i].element - 1].stats.total_points,
                     points_explained: liveStats[picks[i].element -1].explain[0].stats, //returns array of objects (object values: identifier, points, value)
@@ -107,13 +112,14 @@ function LiveRank(props) {
             }
         }
 
-        console.log(goalkeeper);
-        console.log(defenders);
-        console.log(midfielders);
-        console.log(forwards);
-        console.log(bench);
+        setDefenders(defenderArray);
+        setMidfielders(midfielderArray);
+        setForwards(forwardArray);
+        setBench(benchArray);  
     }
 
+    const teamData = props.teamData;
+    const userName = props.userData.player_first_name + ' ' + props.userData.player_last_name;
 
     useEffect(() => {
         if (props.players.length > 0 && Object.keys(teamData).length > 0 && liveStats.length > 0){
@@ -121,12 +127,14 @@ function LiveRank(props) {
         } else {
             console.log("No data yet.")
         }
-    }, [liveStats]);
+    }, [liveStats, props.players, teamData]);
     
-    const teamData = props.teamData;
-    const userName = props.userData.player_first_name + ' ' + props.userData.player_last_name;
+   
+    const renderPlayers = (arr) => arr.map(player =>
+        <PlayerCard name={player.name} points={player.total_points} />
+    )
 
-    return Object.keys(teamData).length > 0 ? (
+    return forwards.length ? (
         <main>
             <div className="live-rank-team">
                 <div className='live-rank-team-header'>
@@ -137,30 +145,20 @@ function LiveRank(props) {
                 </div>
                 <div className="starting-xi">
                     <div className="starting-keeper">
-                        <PlayerCard name='Raya' />
+                        <PlayerCard name={goalkeeper.name} points={goalkeeper.total_points} />
                     </div>
                     <div className="starting-defenders">
-                        <PlayerCard name='Saliba' />
-                        <PlayerCard name='Gabriel' />
-                        <PlayerCard name='White' />
+                       {renderPlayers(defenders)}
                     </div>
                     <div className="starting-midfielders">
-                        <PlayerCard name='Saka' />
-                        <PlayerCard name='Ødegaard' />
-                        <PlayerCard name='Martinelli' />
-                        <PlayerCard name='Rice' />
+                        {renderPlayers(midfielders)}
                     </div>
                     <div className="starting-forwards">
-                        <PlayerCard name='Havertz' />
-                        <PlayerCard name='Jesus' />
-                        <PlayerCard name='Nketiah' />
+                        {renderPlayers(forwards)}
                     </div>
                 </div>
                 <div className="bench-players">
-                    <PlayerCard name='Ramsdale' />
-                    <PlayerCard name='Calafiori' />
-                    <PlayerCard name='Nwaneri' />
-                    <PlayerCard name='Timber' />
+                    {renderPlayers(bench)}
                 </div>
             </div>
             
