@@ -115,7 +115,7 @@ function LiveRank(props) {
         setDefenders(defenderArray);
         setMidfielders(midfielderArray);
         setForwards(forwardArray);
-        setBench(benchArray);  
+        setBench(benchArray);
     }
 
     const teamData = props.teamData;
@@ -131,7 +131,7 @@ function LiveRank(props) {
     
    
     const renderPlayers = (arr) => arr.map(player =>
-        <PlayerCard name={player.name} points={player.total_points} />
+        <PlayerCard name={player.name} points={player.total_points} team={player.team} />
     )
 
     return forwards.length ? (
@@ -145,7 +145,7 @@ function LiveRank(props) {
                 </div>
                 <div className="starting-xi">
                     <div className="starting-keeper">
-                        <PlayerCard name={goalkeeper.name} points={goalkeeper.total_points} />
+                        <PlayerCard name={goalkeeper.name} points={goalkeeper.total_points} team={goalkeeper.team} />
                     </div>
                     <div className="starting-defenders">
                        {renderPlayers(defenders)}
