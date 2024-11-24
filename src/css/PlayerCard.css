@@ -53,8 +53,18 @@
     background-color: #5ebc87;
     border: 0.5px solid #2d6a47;
     width: 80%;
-    text-align: center;
     padding: 5px;
+    text-align: center;
     border-radius: 3px;
     font-weight: 600;
 }
+
+.hide {
+    display: none;
+}
+
+.player-card-points:hover + .hide {
+    display: inline-block;
+    z-index: 1;
+}
+

@@ -24,7 +24,6 @@ function LiveRank(props) {
     useEffect(() => {
         if (props.userData.current_event !== undefined){
             fetchPlayerLiveStats();
-            console.log("Fetched livestats");
         }
     }, [props.userData]);
 
@@ -35,9 +34,6 @@ function LiveRank(props) {
     const [bench, setBench] = useState([]);
 
     function fillTeam() {
-        // props.players = [{}, {}, {}...]
-        // props.teams = [{}, {}, {}...]
-        // props.teamData.elements = [{}, {}, {}...]
         let defenderArray = [];
         let midfielderArray = [];
         let forwardArray = [];
@@ -131,7 +127,7 @@ function LiveRank(props) {
     
    
     const renderPlayers = (arr) => arr.map(player =>
-        <PlayerCard name={player.name} points={player.total_points} team={player.team} />
+        <PlayerCard name={player.name} points={player.total_points} team={player.team} points_explained={player.points_explained} key={player.name} />
     )
 
     return forwards.length ? (
@@ -145,7 +141,7 @@ function LiveRank(props) {
                 </div>
                 <div className="starting-xi">
                     <div className="starting-keeper">
-                        <PlayerCard name={goalkeeper.name} points={goalkeeper.total_points} team={goalkeeper.team} />
+                        <PlayerCard name={goalkeeper.name} points={goalkeeper.total_points} team={goalkeeper.team} points_explained={goalkeeper.points_explained}/>
                     </div>
                     <div className="starting-defenders">
                        {renderPlayers(defenders)}

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import '../css/PlayerCard.css';
 
 function PlayerCard(props){
@@ -9,8 +10,27 @@ function PlayerCard(props){
             <img src={ImagePath} alt={teamName + 'shirt'} className='player-img' />
         );
     };
-    
-    return (
+
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        if (props.points_explained){
+            setIsLoading(false);
+            console.log(isLoading);
+        }
+    }, [props.points_explained])
+
+    const mapExplanations = () => {
+       return props.points_explained.map((obj) => (
+            <tr key={obj.identifier}>
+                <td>{obj.identifier}</td>
+                <td>{obj.value}</td>
+                <td>{obj.points}</td>
+            </tr>
+       ));
+    };
+
+    return isLoading ? (<p>Loading..</p>) : (
         <div className='player-card'>
             <div className='eo-wrapper'>
                 <p className='eo-near'>33.3%</p>
@@ -20,7 +40,23 @@ function PlayerCard(props){
                 <PlayerShirt teamName={props.team} />
                 <p>{props.name}</p>
             </div>
-            <p className='player-card-points'>{props.points}</p>
+            <div className='player-card-points'>
+                {props.points}
+            </div>
+            <span className='hide'>
+                <table className='explain-points-table'>
+                    <thead>
+                        <tr>
+                            <th>Identifier</th>
+                            <th>Value</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {mapExplanations()}
+                    </tbody>
+                </table>
+            </span>
         </div>
     )
 }
