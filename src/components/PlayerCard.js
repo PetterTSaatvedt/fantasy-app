@@ -43,20 +43,18 @@ function PlayerCard(props){
             <div className='player-card-points'>
                 {props.points}
             </div>
-            <span className='hide'>
-                <table className='explain-points-table'>
-                    <thead>
-                        <tr>
-                            <th>Identifier</th>
-                            <th>Value</th>
-                            <th>Points</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {mapExplanations()}
-                    </tbody>
-                </table>
-            </span>
+            <table className='explain-points-table'>
+                <thead>
+                    <tr>
+                        <th>Identifier</th>
+                        <th>Value</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {mapExplanations()}
+                </tbody>
+            </table>
         </div>
     )
 }
