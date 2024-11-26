@@ -136,7 +136,7 @@ function LiveRank(props) {
                 <div className='live-rank-team-header'>
                     <h1>{props.userData.name}</h1>
                     <div className='gw-points'>
-                        <p>GW Points: {teamData.entry_history.points}</p>
+                        <p>GW Points: <b>{teamData.entry_history.points}</b></p>
                     </div>
                 </div>
                 <div className="starting-xi">
