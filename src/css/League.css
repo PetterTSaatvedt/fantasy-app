@@ -1,4 +1,12 @@
 
+.league-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 80%;
+    margin-top: 1em;
+}
+
 .league-wrapper {
     display: flex;
     flex-direction: column;

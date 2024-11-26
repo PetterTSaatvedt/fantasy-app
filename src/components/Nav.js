@@ -11,7 +11,9 @@ function Nav() {
                 <li>
                     <Link to={'/leagues'}>Leagues</Link>
                 </li>
-                <li>Planner</li>
+                <li>
+                    <Link to={'/stats'}>Statistics</Link>
+                </li>
             </ul>
         </nav>
     );

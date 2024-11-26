@@ -78,9 +78,9 @@ function Main() {
     )
 
     return (
-        <div className="main-content">
+        <main className="main-content">
             {isIdEntered ? <Router userData={userData} teamData={teamData} fplId={fplId} players={players} teams={teams} /> : idInput()}
-        </div>
+        </main>
     )
 }
 

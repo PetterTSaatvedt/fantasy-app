@@ -47,15 +47,14 @@ function League(props){
         </li>)
 
     return (
-        <main>
+        <div className="league-container">
             <div className="league-wrapper">
                 <h1>{leagueData.league?.name}</h1>
                 <ol className="league-leaderboard">
                     {leaderboard}
                 </ol>
             </div>
-        </main>
-        
+        </div>
     )
 }
 

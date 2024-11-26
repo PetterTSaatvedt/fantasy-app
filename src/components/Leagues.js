@@ -16,7 +16,7 @@ function Leagues(props) {
     </li>)
 
     return (
-        <main>
+        <div className="leagues-container">
             <div className="leagues-wrapper">
                 <div className="leagues-header">
                     <h1>{userName}'s Leagues</h1>
@@ -28,7 +28,7 @@ function Leagues(props) {
                 </div>
                 
             </div>
-        </main>
+        </div>
     )
 }
 

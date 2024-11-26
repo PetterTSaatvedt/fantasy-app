@@ -131,7 +131,7 @@ function LiveRank(props) {
     )
 
     return forwards.length ? (
-        <main>
+        <div className="live-rank-container">
             <div className="live-rank-team">
                 <div className='live-rank-team-header'>
                     <h1>{props.userData.name}</h1>
@@ -177,7 +177,7 @@ function LiveRank(props) {
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
     ) : (<p>Fetching team...</p>)
 }
 
