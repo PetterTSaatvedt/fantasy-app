@@ -5,12 +5,16 @@ function Leagues(props) {
     const userData = props.userData;
     const userName = userData.player_first_name + ' ' + userData.player_last_name;
 
-    const leagueListItems = userData.leagues?.classic?.map(league => 
+    const leagueListItems = userData.leagues?.classic?.map(league =>
+    league.start_event < userData.current_event && //Only show active leagues
     <li key={league.id}>
         <Link to={`/leagues/${league.id}`}>
             <div className="leagues-list-item">
                 <h2>{league.name}</h2>
-                <p>1/15</p>
+                <div className="leagues-list-item-rank">
+                    <p><b>{league.entry_rank.toLocaleString()}</b> of {league.rank_count.toLocaleString()}</p>
+                    <div>{league.entry_rank < league.entry_last_rank ? '⬆️' : '🔻'}</div>
+                </div>
             </div>
         </Link>
     </li>)

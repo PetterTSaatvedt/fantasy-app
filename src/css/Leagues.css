@@ -29,6 +29,16 @@ a {
     border-radius: 0.5em 0.5em 0px 0px;
 }
 
+@media (max-width: 768px) {
+    .leagues-container {
+        width: 100%;
+        border-radius: 0;
+    }
+    .leagues-header {
+        border-radius: 0;
+    }
+}
+
 .leagues-list-wrapper {
     display: flex;
     flex-direction: column;
@@ -61,4 +71,12 @@ a {
 .leagues-list-item h2 {
     font-weight: 400;
     font-size: 16px;
+}
+
+.leagues-list-item-rank {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 45%;
+    align-items: center;
 }
