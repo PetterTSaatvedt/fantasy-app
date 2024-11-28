@@ -13,7 +13,10 @@ function Leagues(props) {
                 <h2>{league.name}</h2>
                 <div className="leagues-list-item-rank">
                     <p><b>{league.entry_rank.toLocaleString()}</b> of {league.rank_count.toLocaleString()}</p>
-                    <div>{league.entry_rank < league.entry_last_rank ? '⬆️' : '🔻'}</div>
+                    <div>
+                        {league.entry_rank == 1 && '🏆 '}
+                        {league.entry_rank < league.entry_last_rank ? '⬆️' : '🔻'}
+                    </div>
                 </div>
             </div>
         </Link>
