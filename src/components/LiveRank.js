@@ -195,8 +195,8 @@ function LiveRank(props) {
                         <p>Previous Rank: {props.userData.leagues.classic[3].entry_last_rank.toLocaleString()}</p>
                         <p>New Rank: {''}
                             {props.userData.summary_overall_rank.toLocaleString()}
-                            {props.userData.summary_event_rank < props.userData.leagues.classic[3].entry_last_rank ? ' ⬆️'
-                            : props.userData.summary_event_rank > props.userData.leagues.classic[3].entry_last_rank ? ' 🔻'
+                            {props.userData.summary_overall_rank < props.userData.leagues.classic[3].entry_last_rank ? ' ⬆️'
+                            : props.userData.summary_overall_rank > props.userData.leagues.classic[3].entry_last_rank ? ' 🔻'
                             : ' 🔁'}
                         </p>
                     </div>
