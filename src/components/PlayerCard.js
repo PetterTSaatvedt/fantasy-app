@@ -13,10 +13,19 @@ function PlayerCard(props){
 
     const [isLoading, setIsLoading] = useState(true);
 
+    const armband = () => {
+        let letter = 'C';
+        if (props.is_vice_captain){
+            letter = 'V'
+        }
+        return (
+            <div className={props.multiplier === 3 ? 'triple-captain' : 'armband'}>{letter}</div>
+        );
+    }
+
     useEffect(() => {
         if (props.points_explained){
             setIsLoading(false);
-            console.log(isLoading);
         }
     }, [props.points_explained])
 
@@ -32,12 +41,13 @@ function PlayerCard(props){
 
     return isLoading ? (<p>Loading..</p>) : (
         <div className='player-card'>
+            {(props.is_captain || props.is_vice_captain) && armband()}
             <PlayerShirt teamName={props.team} />
             <div className='player-card-name'>
                 {props.name}
             </div>
             <div className='player-card-points'>
-                {props.points}
+                {props.points * props.multiplier}
             </div>
             <table className='explain-points-table'>
                 <thead>
