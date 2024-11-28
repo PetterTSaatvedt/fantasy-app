@@ -192,8 +192,13 @@ function LiveRank(props) {
                     </div>
                     <div className="live-rank-ranks">
                         <p>Gameweek Rank: {props.userData.summary_event_rank.toLocaleString()}</p>
-                        <p>Old Rank:</p>
-                        <p>New Rank: {props.userData.summary_overall_rank.toLocaleString()}</p>
+                        <p>Previous Rank: {props.userData.leagues.classic[3].entry_last_rank.toLocaleString()}</p>
+                        <p>New Rank: {''}
+                            {props.userData.summary_overall_rank.toLocaleString()}
+                            {props.userData.summary_event_rank < props.userData.leagues.classic[3].entry_last_rank ? ' ⬆️'
+                            : props.userData.summary_event_rank > props.userData.leagues.classic[3].entry_last_rank ? ' 🔻'
+                            : ' 🔁'}
+                        </p>
                     </div>
                 </div>
             </div>
