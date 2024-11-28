@@ -20,7 +20,7 @@
 }
 
 .live-rank-team-header {
-    background-image: linear-gradient(to right, rgb(2, 239, 255), rgb(98, 123, 255));
+    background-image: linear-gradient(to right, rgb(2, 239, 255, 0.6), rgb(98, 123, 255, 0.6));
     padding: 2em;
     border-radius: 5px 5px 0px 0px;
     display: flex;
@@ -30,8 +30,8 @@
 }
 
 .gw-points {
-    background-color: rgb(2, 239, 255, 0.6);
-    padding: 0 2em 0 2em;
+    background-color: rgb(2, 239, 255, 0.5);
+    padding: 0 1em 0 1em;
     border-radius: 4px;
     box-shadow: 1px 1px 5px 0.1px #285a94;
     font-weight: 400;
@@ -91,7 +91,6 @@
 }
 
 .personal-info {
-    background-image: linear-gradient(120deg, rgb(2, 239, 255), rgb(98, 124, 255));
     border-radius: 4px;
 }
 

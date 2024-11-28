@@ -32,13 +32,9 @@ function PlayerCard(props){
 
     return isLoading ? (<p>Loading..</p>) : (
         <div className='player-card'>
-            <div className='eo-wrapper'>
-                <p className='eo-near'>33.3%</p>
-                <p className='eo-overall'>10.3%</p>
-            </div>
-            <div className='player-wrapper'>
-                <PlayerShirt teamName={props.team} />
-                <p>{props.name}</p>
+            <PlayerShirt teamName={props.team} />
+            <div className='player-card-name'>
+                {props.name}
             </div>
             <div className='player-card-points'>
                 {props.points}
