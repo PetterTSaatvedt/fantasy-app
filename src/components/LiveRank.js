@@ -188,9 +188,9 @@ function LiveRank(props) {
                         <p>Gameweek Points: {teamData.entry_history.points}</p>
                     </div>
                     <div className="live-rank-ranks">
-                        <p>Gameweek Rank: {props.userData.summary_event_rank}</p>
+                        <p>Gameweek Rank: {props.userData.summary_event_rank.toLocaleString()}</p>
                         <p>Old Rank:</p>
-                        <p>New Rank: {props.userData.summary_overall_rank}</p>
+                        <p>New Rank: {props.userData.summary_overall_rank.toLocaleString()}</p>
                     </div>
                 </div>
             </div>
