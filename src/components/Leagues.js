@@ -17,16 +17,13 @@ function Leagues(props) {
 
     return (
         <div className="leagues-container">
-            <div className="leagues-wrapper">
-                <div className="leagues-header">
-                    <h1>{userName}'s Leagues</h1>
-                </div>
-                <div className="leagues-list-wrapper">
-                    <ul className="leagues-list">
-                        {leagueListItems}
-                    </ul>
-                </div>
-                
+            <div className="leagues-header">
+                <h1>{userName}'s Leagues</h1>
+            </div>
+            <div className="leagues-list-wrapper">
+                <ul className="leagues-list">
+                    {leagueListItems}
+                </ul>
             </div>
         </div>
     )

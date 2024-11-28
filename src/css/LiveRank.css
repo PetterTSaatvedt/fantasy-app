@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    width: 80%;
+    width: 85%;
     margin-top: 1em;
     margin-bottom: 10em; 
 }
@@ -15,14 +15,14 @@
 .live-rank-team {
     height: auto;
     width: 70%;
-    border-radius: 5px 5px 5px 5px;
+    border-radius: 0.5em;
     border: 0.5px solid rgb(98, 123, 255);
 }
 
 .live-rank-team-header {
     background-image: linear-gradient(to right, rgb(2, 239, 255, 0.6), rgb(98, 123, 255, 0.6));
-    padding: 2em;
-    border-radius: 5px 5px 0px 0px;
+    padding: 1em 3em 1em 3em;
+    border-radius: 0.5em 0.5em 0 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -30,16 +30,8 @@
 }
 
 .gw-points {
-    background-color: rgb(2, 239, 255, 0.5);
-    padding: 0 1em 0 1em;
-    border-radius: 4px;
-    box-shadow: 1px 1px 5px 0.1px #285a94;
     font-weight: 400;
     font-size: 1.3em;
-}
-
-.live-rank-team-header h1 {
-    margin: 0;
 }
 
 .starting-xi {
@@ -67,7 +59,7 @@
     border-top: 0.5px solid black;
     background-color: #13b75a;
     height: auto;
-    border-radius: 0px 0px 5px 5px;
+    border-radius: 0px 0px 0.5em 0.5em;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -90,13 +82,9 @@
     background-image: linear-gradient(120deg, rgb(2, 239, 255, 0.3), rgb(98, 124, 255, 0.3));
 }
 
-.personal-info {
-    border-radius: 4px;
-}
-
 .stats, .personal-info {
     text-align: left;
     margin-left: 30px;
-    padding: 1rem;
+    padding: 1em;
 }
 
