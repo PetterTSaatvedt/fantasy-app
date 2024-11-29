@@ -204,7 +204,10 @@ function LiveRank(props) {
                                 : ' 🔁'}
                             </p>
                             <p>Previous Rank: {props.userData.leagues.classic[3].entry_last_rank.toLocaleString()}</p>
-                            <p>Gameweek Rank: {props.userData.summary_event_rank.toLocaleString()}</p>
+                            
+                            <p>{props.userData.summary_event_rank !== null && 
+                            `Gameweek Rank: ${props.userData.summary_event_rank.toLocaleString()}`}
+                            </p>
                         </div>
                     </div>
                 </div>

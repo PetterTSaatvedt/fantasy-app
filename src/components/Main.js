@@ -9,6 +9,7 @@ function Main() {
     const [players, setPlayers] = useState([]);
     const [teams, setTeams] = useState([]);
     const [isIdEntered, setIsIdEntered] = useState(false);
+    const [errorMessage, setErrorMessage] = useState({});
 
     async function fetchPlayersAndTeams() {
         try {
@@ -25,7 +26,7 @@ function Main() {
             setPlayers(sortedPlayers);
             setTeams(sortedTeams);
         } catch(error) {
-            console.log(error);
+            console.log(error.message);
         }
     }
 

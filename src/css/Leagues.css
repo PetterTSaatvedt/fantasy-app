@@ -80,3 +80,10 @@ a {
     width: 45%;
     align-items: center;
 }
+
+.gray-arrow {
+    background-color: rgb(186, 186, 186);
+    width: 0.8em;
+    height: 0.8em;
+    border-radius: 50px;
+}

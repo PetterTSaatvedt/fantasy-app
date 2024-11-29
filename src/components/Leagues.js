@@ -5,6 +5,12 @@ function Leagues(props) {
     const userData = props.userData;
     const userName = userData.player_first_name + ' ' + userData.player_last_name;
 
+    const grayArrow = () => {
+        return (
+            <div className='gray-arrow'></div>
+        );
+    }
+
     const leagueListItems = userData.leagues?.classic?.map(league =>
     league.start_event < userData.current_event && //Only show active leagues
     <li key={league.id}>
@@ -15,7 +21,11 @@ function Leagues(props) {
                     <p><b>{league.entry_rank.toLocaleString()}</b> of {league.rank_count.toLocaleString()}</p>
                     <div>
                         {league.entry_rank == 1 && '🏆 '}
-                        {league.entry_rank < league.entry_last_rank ? '⬆️' : '🔻'}
+                        {
+                        league.entry_rank < league.entry_last_rank ? '⬆️'
+                        : league.entry_rank > league.entry_last_rank ? '🔻' 
+                        : grayArrow()
+                        }
                     </div>
                 </div>
             </div>
