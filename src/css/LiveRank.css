@@ -1,15 +1,40 @@
 .live-rank-header {
-    width: 90%;
-    text-align: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.live-rank-header h1 {
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+.personal-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+.personal-info p {
+    margin-left: 0.2em;
 }
 
 .live-rank-container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
     width: 85%;
     margin-top: 1em;
     margin-bottom: 10em; 
+}
+
+.team-and-stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .live-rank-team {
@@ -29,9 +54,8 @@
     align-items: center;
 }
 
-.gw-points {
-    font-weight: 400;
-    font-size: 1.3em;
+.live-rank-team-header h2 {
+    font-size: 2em;
 }
 
 .starting-xi {
@@ -50,19 +74,20 @@
     flex-direction: column;
     align-items: center;
     background-color: #38003c;
-    padding: 0.5em 1.5em 0.5em 1.5em;
+    padding: 0.5em 1.8em 0.5em 1.8em;
     border-radius: 0.2em;
+    font-weight: 400;
 }
 
 .gw-points-small {
     color: white;
     padding: 0;
     margin: 0;
-    font-size: 0.5em;
+    font-size: 0.65em;
 }
 
 .gw-points-big {
-    font-size: 2.1em;
+    font-size: 3em;
     font-weight: 800;
     margin: 0;
     padding: 0;
@@ -103,16 +128,17 @@
 }
 
 .stats {
-    margin-top: 20px;
-    border: 3px solid;
-    border-image-slice: 1;
-    border-image-source: linear-gradient(120deg, rgb(2, 239, 255), rgb(98, 123, 255));
-    background-image: linear-gradient(120deg, rgb(2, 239, 255, 0.3), rgb(98, 124, 255, 0.3));
-}
-
-.stats, .personal-info {
     text-align: left;
     margin-left: 30px;
-    padding: 1em;
+}
+
+.stats h2 {
+    font-size: 1.5em;
+    font-weight: 300;
+    margin: 0;
+}
+
+.live-rank-points {
+    margin-bottom: 2em;
 }
 
