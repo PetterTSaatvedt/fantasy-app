@@ -36,11 +36,39 @@
 
 .starting-xi {
     background-color: #09c75b;
+    width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    position: relative;
+}
+
+.gw-points {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #38003c;
+    padding: 0.5em 1.5em 0.5em 1.5em;
+    border-radius: 0.2em;
+}
+
+.gw-points-small {
+    color: white;
+    padding: 0;
+    margin: 0;
+    font-size: 0.5em;
+}
+
+.gw-points-big {
+    font-size: 2.1em;
+    font-weight: 800;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to right, rgb(5, 240, 255), rgb(0, 255, 135));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .starting-defenders, .starting-midfielders, .starting-forwards {
