@@ -4,6 +4,8 @@ import PlayerCard from './PlayerCard';
 
 function LiveRank(props) {
     const [liveStats, setLiveStats] = useState([]);
+    const [livePoints, setLivePoints] = useState(0);
+    const [calculatedPoints, setCalculatedPoints] = useState(false);
 
     async function fetchPlayerLiveStats() {
         try {
@@ -32,6 +34,25 @@ function LiveRank(props) {
     const [midfielders, setMidfielders] = useState([]);
     const [forwards, setForwards] = useState([]);
     const [bench, setBench] = useState([]);
+
+    const calculatePoints = () => {
+        let points = goalkeeper.total_points * goalkeeper.multiplier;
+
+        for (let i = 0; i < defenders.length; i++) {
+            points += defenders[i]?.total_points * defenders[i].multiplier;
+        }
+
+        for (let i = 0; i < midfielders.length; i++) {
+            points += midfielders[i].total_points * midfielders[i].multiplier;
+        }
+
+        for (let i = 0; i < forwards.length; i++) {
+            points += forwards[i].total_points * forwards[i].multiplier;
+        }
+
+        setLivePoints(points);
+        setCalculatedPoints(true);
+    }
 
     function fillTeam() {
         let defenderArray = [];
@@ -112,6 +133,8 @@ function LiveRank(props) {
         setMidfielders(midfielderArray);
         setForwards(forwardArray);
         setBench(benchArray);
+
+        calculatePoints();
     }
 
     const teamData = props.teamData;
@@ -123,9 +146,8 @@ function LiveRank(props) {
         } else {
             console.log("No data yet.")
         }
-    }, [liveStats, props.players, teamData]);
+    }, [liveStats, props.players, teamData, calculatedPoints]);
     
-   
     const renderPlayers = (arr) => arr.map(player =>
         <PlayerCard 
             name={player.name}
@@ -139,7 +161,7 @@ function LiveRank(props) {
         />
     )
 
-    return forwards.length ? (
+    return calculatedPoints == true ? (
         <div className="live-rank-container">
             <div className='live-rank-header'>
                 <h1>Live Rank - Gameweek {props.userData.current_event}</h1>
@@ -156,8 +178,8 @@ function LiveRank(props) {
                         <h2>{props.userData.name}</h2>
                         <div className='gw-points'>
                             <p className='gw-points-small'>Total Points:</p>
-                            <p className='gw-points-big'>{teamData.entry_history.points - teamData.entry_history.event_transfers_cost}</p>
-                            <p className='gw-points-small'>{teamData.entry_history.event_transfers_cost > 0 && `(${teamData.entry_history.points} - ${teamData.entry_history.event_transfers_cost}) `}</p>
+                            <p className='gw-points-big'>{livePoints - teamData.entry_history.event_transfers_cost}</p>
+                            <p className='gw-points-small'>{teamData.entry_history.event_transfers_cost > 0 && `(${livePoints} - ${teamData.entry_history.event_transfers_cost}) `}</p>
                         </div>
                     </div>
                     <div className="starting-xi">
@@ -192,7 +214,7 @@ function LiveRank(props) {
                     <div className="stats">
                         <div className="live-rank-points">
                             <h2>Points</h2>
-                            <p>Gameweek Points: {teamData.entry_history.points}</p>
+                            <p>Gameweek Points: {livePoints - teamData.entry_history.event_transfers_cost}</p>
                             <p>Overall points: {props.userData.summary_overall_points}</p>
                         </div>
                         <div className="live-rank-ranks">
