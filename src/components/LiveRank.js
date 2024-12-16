@@ -39,7 +39,7 @@ function LiveRank(props) {
         let points = goalkeeper.total_points * goalkeeper.multiplier;
 
         for (let i = 0; i < defenders.length; i++) {
-            points += defenders[i]?.total_points * defenders[i].multiplier;
+            points += defenders[i].total_points * defenders[i].multiplier;
         }
 
         for (let i = 0; i < midfielders.length; i++) {
@@ -161,12 +161,23 @@ function LiveRank(props) {
         />
     )
 
+    const isoCode = () => {
+        let shortIso = props.userData.player_region_iso_code_short.toLowerCase();
+        let longIso = props.userData.player_region_iso_code_long.toLowerCase();
+        
+        if (longIso === 'eng' || longIso === 'nir' || longIso === 'sct' || longIso === 'wls'){
+            return 'gb-' + longIso;
+        } else {
+            return shortIso;
+        }
+    }
+
     return calculatedPoints == true ? (
         <div className="live-rank-container">
             <div className='live-rank-header'>
                 <h1>Live Rank - Gameweek {props.userData.current_event}</h1>
                 <div className="personal-info">
-                    <img src={`https://flagcdn.com/${props.userData.player_region_iso_code_short.toLowerCase()}.svg`} width={30} />
+                    <img src={`https://flagcdn.com/${isoCode()}.svg`} width={30} />
                     <p>{userName}</p>
                 </div>
                 <button>Change ID</button>
