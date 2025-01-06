@@ -177,7 +177,7 @@ function LiveRank(props) {
             <div className='live-rank-header'>
                 <h1>Live Rank - Gameweek {props.userData.current_event}</h1>
                 <div className="personal-info">
-                    <img src={`https://flagcdn.com/${isoCode()}.svg`} width={30} />
+                    <img src={`https://flagcdn.com/${isoCode()}.svg`} width={30} alt=''/>
                     <p>{userName}</p>
                 </div>
                 <button>Change ID</button>
