@@ -9,7 +9,6 @@ function Main() {
     const [players, setPlayers] = useState([]);
     const [teams, setTeams] = useState([]);
     const [isIdEntered, setIsIdEntered] = useState(false);
-    const [errorMessage, setErrorMessage] = useState({});
 
     async function fetchPlayersAndTeams() {
         try {
@@ -32,7 +31,7 @@ function Main() {
 
     async function fetchUserAndTeamData() {
         try {
-            const response = await fetch(`api/entry/${fplId}/`, {
+            const response = await fetch(`/api/entry/${fplId}`, {
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json",
@@ -42,9 +41,8 @@ function Main() {
             const userDataJson = await response.json();
             setUserData(userDataJson);
 
-            const urlId = userDataJson.id;
             const urlCurrentEvent = userDataJson.current_event;
-            const secondResponse = await fetch(`/api/entry/${urlId}/event/${urlCurrentEvent}/picks/`, {
+            const secondResponse = await fetch(`/api/entry/${fplId}/event/${urlCurrentEvent}/picks/`, {
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json",

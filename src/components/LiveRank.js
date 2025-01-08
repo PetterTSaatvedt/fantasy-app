@@ -6,10 +6,11 @@ function LiveRank(props) {
     const [liveStats, setLiveStats] = useState([]);
     const [livePoints, setLivePoints] = useState(0);
     const [calculatedPoints, setCalculatedPoints] = useState(false);
+    const current = props.userData.current_event;
 
     async function fetchPlayerLiveStats() {
         try {
-            const response = await fetch(`api/event/${props.userData.current_event}/live/`, {
+            const response = await fetch(`api/event/${current}/live/`, {
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json",
@@ -24,7 +25,7 @@ function LiveRank(props) {
     }
 
     useEffect(() => {
-        if (props.userData.current_event !== undefined){
+        if (current !== undefined){
             fetchPlayerLiveStats();
         }
     }, [props.userData]);
