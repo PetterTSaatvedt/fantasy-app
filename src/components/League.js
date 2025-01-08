@@ -22,7 +22,6 @@ function League(props){
             }
             const leagueDataJson = await response.json();
             setLeagueData(leagueDataJson);
-            console.log(leagueData);
         } catch(error) {
             console.error(error.message);
         }
