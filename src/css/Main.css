@@ -48,6 +48,16 @@
     font-size: 16px;
 }
 
+.change-id-btn {
+    padding: 0.375em 0.875em;
+    background-image: linear-gradient(to right, rgb(2, 239, 255, 0.3), rgb(98, 123, 255, 0.3));
+    border: 0.5px solid #340040;
+    max-width: 10rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
 .tip {
     margin-top: 20px;
     width: 100%;

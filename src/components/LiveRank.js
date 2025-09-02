@@ -181,7 +181,6 @@ function LiveRank(props) {
                     <img src={`https://flagcdn.com/${isoCode()}.svg`} width={30} alt=''/>
                     <p>{userName}</p>
                 </div>
-                <button>Change ID</button>
             </div>
 
             <div className='team-and-stats'>

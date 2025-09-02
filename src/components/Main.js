@@ -76,8 +76,14 @@ function Main() {
         </div>
     )
 
+    const resetID = () => {
+        setIsIdEntered(false);
+        setFplId('');
+    }
+
     return (
         <main className="main-content">
+            {isIdEntered && <button className="change-id-btn" onClick={resetID}>Change ID</button>}
             {isIdEntered ? <Router userData={userData} teamData={teamData} fplId={fplId} players={players} teams={teams} /> : idInput()}
         </main>
     )
